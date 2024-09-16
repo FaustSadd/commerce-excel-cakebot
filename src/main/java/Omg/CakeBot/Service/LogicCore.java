@@ -3,7 +3,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 
 
@@ -19,6 +18,7 @@ public class LogicCore {
 
 
     public String getStandartReceipt(String messageText){
+
         // Парсим имя
         Pattern namePattern = Pattern.compile("Получен заказ от покупателя (.+) :");
         Matcher nameMatcher = namePattern.matcher(messageText);
@@ -34,25 +34,30 @@ public class LogicCore {
             date = LocalDate.parse(dateMatcher.group(1), formatter);
         }
 
-        // Парсим название продукта и вес
-        Pattern productPattern = Pattern.compile("Торт (.+) - \\d\\n- Выбор веса:\\n(\\d+)");
+        // Парсим название продукта
+        Pattern productPattern = Pattern.compile("Торт (.+?) - \\d|(.+?) \\| \\d");
         Matcher productMatcher = productPattern.matcher(messageText);
         if (productMatcher.find()) {
-            productName = productMatcher.group(1);
-            weight = Float.parseFloat(productMatcher.group(2));
+            productName = productMatcher.group(1) != null ? productMatcher.group(1) : productMatcher.group(2);
         }
 
-        // Парсим адрес
-        String addressPattern = "(Платёжный адрес\\s*\\n)([\\s\\S]+?)(\\+7[\\d]{10})";
+        // Парсим адрес или самовывоз
+        String addressPattern = "(Платёжный адрес\\s*\\n)([\\s\\S]+?)(\\d{10,12})";
         Pattern pattern = Pattern.compile(addressPattern);
         Matcher addressMatcher = pattern.matcher(messageText);
-
         if (addressMatcher.find()) {
             address = addressMatcher.group(2).trim();
+        } else {
+            // Парсим самовывоз
+            Pattern pickupPattern = Pattern.compile("(Самовывоз.+)");
+            Matcher pickupMatcher = pickupPattern.matcher(messageText);
+            if (pickupMatcher.find()) {
+                address = pickupMatcher.group(1).trim();
+            }
         }
 
         // Парсим номер телефона
-        Pattern phonePattern = Pattern.compile("(\\+\\d{11,12})");  // Поддерживает формат +7XXXXXXXXXX или +7XXXXXXXXXXX (для +7)
+        Pattern phonePattern = Pattern.compile("(\\+?\\d{10,12})");
         Matcher phoneMatcher = phonePattern.matcher(messageText);
         if (phoneMatcher.find()) {
             phoneNumber = phoneMatcher.group(1);
