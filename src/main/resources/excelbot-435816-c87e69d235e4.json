@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "excelbot-435816",
+  "private_key_id": "c87e69d235e455e853cc2f3a4fa1930ac180e499",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjRBUcOZNK5zlq\n2v09l/v7Ep4OCSbJNA7jhqoZTD+nqPy9m2F7TG/duS0u/22F3D/DAsmTk0UIBHTM\ngNJZh7Y/rvXyqepw3ToKV/aobAv8S0YnHim1hzijgor+xGjZXzjE3+3VetZUjDUO\nMqNYem2Rrf3Bj4MFTAVoe9A68L8ZGv+6bVq1PgsV5YshyuRQcW1W2s8pullNT/0w\nUPiuIAaJmUs0hnTo747h4P3CAO/cY0GuC/1ghbF7JKWPUP3gWGHXO7gOfa9toaaW\n/nqllV6w0zF66f0+tgNqtMTYIVSHf8F+4fSQY4Dq8PTkIxxMc4Gs2vrpJ73xx8UO\nG6Us54q5AgMBAAECggEAIxIOHdLBUMr0Ar/ZO6ig5Fkmsfmlxv0jgJzt/4KpPszW\nQ61zpm5wLjbnnYuZPXKnEK8R2V0+bB827rHyXXCBRdNBujdlKIrg+5VTIvEYrwCF\naIQ6befG0xrI3DqZEi557ZJzjpK1JRK8F9lpTKl5zVwMYQ6AlLv0gnHsNCkAR7Y0\n2B8dD35AwYVh0eIDbDRmTSkikAf8Ree1NHggc6URbdzrb3BJf+BsJlH8vzv475Ns\nMLwQ3wDM65o7ivgY1GlvsTZICloLT7HDCwfdFy0VbX1eVOOwuTYmdvGfCFol7DYw\nxWt9KKi46S89UI0J/p0rdBx0SKoAs69DSmxK84zRzQKBgQDUkHNBeBcik97H2e1Q\no3Ms24UeGwJ8gwdjKkGRlR08SCe1gB0PWS40pdO5jAI6rNaYGz1knRfycS5uwoip\nFr8jKko5tBzTo7vAc168Rh4oc7DRwsNLayHOTSx19nGPonqKIIDCA6+aIhpM3itL\nR0Y5BIR+GrX/kWtPhcQTcEpKfQKBgQDEoMPPMFEka+3xjS39G1iJ9xQRZ/7IKof5\nMdtJZ/yemr4WSEuAjcUgFaJUd/S/n3X43EzrZxHlh1VlEmQgwHJlVDvzbILzsn4z\naOn+hNBdeb49CVBQGC7f2+8dq28JHNPFt3iTuLdrQeQ3tYx69ni3pcCzrTqv8q4+\nz7YHDvH57QKBgG6A4coJOk25fbl7q4meT0PkoyFxfStpmq+MyiV61YX/JNWQUosm\nG4U3KAhvpsEGFVFh59qkaEybVj4yV4U/1AHd/FRfNBU6K2LzFy7dbNQuwJ9rlsdg\nXGS5bgGtKoA3QWkJWKaD8Ag67l1DqlIqLXF6zb4Y+MBxws3GhpZsa9KpAoGASbs7\nEbM9ihnKtNxK1XFupvV2mfxUJr0EFeajIwiSSusdwn9DiKYguCJEp8X/ieeCtlnt\nogwZQueXlvnpf/qKKwMGJAaZqEZTWnXJ4L3u4E5pjruyWQZodVskdAy360PbCXX+\nCe6nINopeNZkIivQIpVOCFI6AoZO3pDG4iixhhUCgYBpq/lhZCWlsWtxwhF7uQ/q\n5SACJrXFmn7V2rRqC3QAyNUeMxgUGcl59J/02XZZX2/X+Dhmff10xG18HGWhNCMn\nWyUd5ojNzbat0cU80BJvgehhTF3GmaObGuk7dsB/sorXduL/oJaIuhjCAIWEzHrw\nCSpV1eOgO0lFolfT538FUA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "excelbotcake@excelbot-435816.iam.gserviceaccount.com",
+  "client_id": "112457759408887244369",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/excelbotcake%40excelbot-435816.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
