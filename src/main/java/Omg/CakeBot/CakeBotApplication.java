@@ -10,4 +10,5 @@ public class CakeBotApplication {
 		SpringApplication.run(CakeBotApplication.class, args);
 	}
 
+
 }

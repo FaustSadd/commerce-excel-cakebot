@@ -54,6 +54,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+src/main/resources/excelbot-435816-753e1ba5d64a.json
 
 ### VS Code ###
 .vscode/
