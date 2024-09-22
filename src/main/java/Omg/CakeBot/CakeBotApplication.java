@@ -8,7 +8,6 @@ import java.security.GeneralSecurityException;
 
 @SpringBootApplication
 public class CakeBotApplication {
-
 	public static void main(String[] args) throws GeneralSecurityException, IOException {
 		SpringApplication.run(CakeBotApplication.class, args);
 	}

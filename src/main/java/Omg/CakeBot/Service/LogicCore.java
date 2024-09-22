@@ -1,14 +1,18 @@
 package Omg.CakeBot.Service;
 
 import com.google.api.services.sheets.v4.Sheets;
-import com.google.api.services.sheets.v4.model.UpdateValuesResponse;
-import com.google.api.services.sheets.v4.model.ValueRange;
+import com.google.api.services.sheets.v4.model.*;
+import com.google.api.services.sheets.v4.SheetsScopes;
+import com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest;
+import com.google.api.services.sheets.v4.model.AddSheetRequest;
+import com.google.api.services.sheets.v4.model.Request;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -42,7 +46,15 @@ public class LogicCore {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
     }
-
+    ////
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    String newSheetName = "createdbybot";
     public String getStandartReceipt(String messageText) {
         // Парсим данные из сообщения
         parseOrderDetails(messageText);
@@ -60,6 +72,24 @@ public class LogicCore {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //
+        //ТЕСТОВОЕ СОЗДАНИЕ НОВОГО ЛИСТА
+        //
+        //
+        try {
+            if (!sheetExists(newSheetName)) {
+                createNewSheet();  // Делаем новый лист если он не существует
+            } else {
+                System.out.println("Лист с названием '" + newSheetName + "' уже существует.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //
+        //
+        //
+        //
         return responseMessage;
     }
 
@@ -144,4 +174,43 @@ public class LogicCore {
             rowIndex++;
         }
     }
+
+    // Метод для создания листа
+    private void createNewSheet() throws IOException, GeneralSecurityException {
+        Sheets service = getSheetsService();
+
+        // Название нового листа - необходим сделать так чтобы он брал дату
+        //
+        //
+        SheetProperties sheetProperties = new SheetProperties().setTitle(newSheetName);
+
+        // Запрос на добавление нового листа
+        AddSheetRequest addSheetRequest = new AddSheetRequest().setProperties(sheetProperties);
+
+        // Обновление таблички
+        Request request = new Request().setAddSheet(addSheetRequest);
+        BatchUpdateSpreadsheetRequest body = new BatchUpdateSpreadsheetRequest()
+                .setRequests(Collections.singletonList(request));
+        service.spreadsheets().batchUpdate(SPREADSHEET_ID, body).execute();
+
+        System.out.println("Новый лист успешно создан!");
+    }
+    //
+
+    //
+
+    //
+    // Проверка на существующий лист
+    private boolean sheetExists(String sheetName) throws IOException, GeneralSecurityException {
+        Sheets service = getSheetsService();
+        Spreadsheet spreadsheet = service.spreadsheets().get(SPREADSHEET_ID).execute();
+
+        for (Sheet sheet : spreadsheet.getSheets()) {
+            if (sheet.getProperties().getTitle().equals(sheetName)) {
+                return true;  // Лист с таким названием существует
+            }
+        }
+        return false;  // Лист не найден
+    }
+
 }
